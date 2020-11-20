@@ -223,5 +223,17 @@ namespace QuanLyDoAn.Controllers
             }
             return 0;
         }
+        public ActionResult Demoling()
+        {
+            var listAcc = (from acc in db.Accounts
+                           join role in db.Roles
+                           on acc.RoleID equals role.RoleID
+                           select new
+                           {
+                               acc.UserName,
+                               role.RoleName
+                           }).ToList();
+            return View(listAcc);
+        }
     }
 }

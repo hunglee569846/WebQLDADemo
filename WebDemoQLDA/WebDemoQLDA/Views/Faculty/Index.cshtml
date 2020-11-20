@@ -1,0 +1,54 @@
+﻿@model IEnumerable<WebDemoQLDA.Models.Faculty>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdFaculty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NameFaculty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsDelete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsActive)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdFaculty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameFaculty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDelete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {  id=item.IdFaculty }) |
+                @Html.ActionLink("Details", "Details", new {  id=item.IdFaculty }) |
+                @Html.ActionLink("Delete", "Delete", new {  id=item.IdFaculty })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
